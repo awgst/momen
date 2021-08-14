@@ -1,0 +1,11 @@
+.bg-image{
+    background-color: #f9ca00ff;
+}
+.fixed-size-img{
+    width: 200px;
+    aspect-ratio: auto 200 / 134;
+    height: 134px;
+}
+.fs-xxxl{
+    font-size: 90px;
+}
