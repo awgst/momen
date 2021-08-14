@@ -23,7 +23,8 @@
             <div class="col-md-8 pe-5">
                 <div class="list-group">
                     <div class="list-group-item border-0 p-0">
-                        <div class="row">
+                        @foreach ($posts as $post)
+                        <div class="row mb-3">
                             <div class="col-md-4 d-flex">
                                 <a href="" class="mx-auto">
                                     <img src="{{ asset('img/rect815.png')}}" alt="" class="img-fluid float-start fixed-size-img">
@@ -32,11 +33,11 @@
                             <div class="col-md-8 my-auto">
                                 <a href="" class="text-decoration-none text-dark">
                                     <div class="d-flex w-100 justify-content-between">
-                                        <h5 class="mb-1 fw-bold fs-2">List group item heading</h5>
+                                        <h5 class="mb-1 fw-bold fs-2">{{ $post->title }}</h5>
                                         <a href="" class="text-dark my-auto"><i class="bi bi-bookmarks fs-5"></i></a>
 
                                     </div>
-                                    <p class="mb-1">Some placeholder content in a paragraph.</p>
+                                    <p class="mb-1">{{ $post->excerpt }}</p>
                                 </a>
                                 <div class="d-flex w-100 mt-2">
                                     <small class="my-auto text-muted">3 days ago</small>
@@ -45,6 +46,8 @@
                                 </div>
                             </div>
                         </div>
+
+                        @endforeach
                     </div>
                 </div>
             </div>
