@@ -26,12 +26,12 @@
                         @foreach ($posts as $post)
                         <div class="row mb-3">
                             <div class="col-md-4 d-flex">
-                                <a href="" class="mx-auto">
+                                <a href="{{ url('/'.$post->slug) }}" class="mx-auto">
                                     <img src="{{ asset('img/rect815.png')}}" alt="" class="img-fluid float-start fixed-size-img">
                                 </a>
                             </div>
                             <div class="col-md-8 my-auto">
-                                <a href="" class="text-decoration-none text-dark">
+                                <a href="{{ url('/'.$post->slug) }}" class="text-decoration-none text-dark">
                                     <div class="d-flex w-100 justify-content-between">
                                         <h5 class="mb-1 fw-bold fs-2">{{ $post->title }}</h5>
                                         <a href="" class="text-dark my-auto"><i class="bi bi-bookmarks fs-5"></i></a>

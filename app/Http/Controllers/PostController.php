@@ -48,7 +48,8 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        // Show specific data by slug
+        return view('show', compact('post'));
     }
 
     /**
