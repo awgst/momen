@@ -29,11 +29,35 @@ class DatabaseSeeder extends Seeder
             'slug' => 'otomotif'
         ]);
         Topic::create([
+            'name' => 'Machine Learning',
+            'slug' => 'machine-learning'
+        ]);
+        Topic::create([
+            'name' => 'Web Desain',
+            'slug' => 'web-desain'
+        ]);
+        Topic::create([
+            'name' => 'Mobile App',
+            'slug' => 'mobile-app'
+        ]);
+        Topic::create([
             'name' => 'Pengembangan Diri',
             'slug' => 'pengembangan-diri'
         ]);
-        $user = User::factory(10)
-            ->has(Post::factory()->count(3))
+        Topic::create([
+            'name' => 'Kecantikan',
+            'slug' => 'kecantikan'
+        ]);
+        Topic::create([
+            'name' => 'Seni',
+            'slug' => 'seni'
+        ]);
+        Topic::create([
+            'name' => 'Web Development',
+            'slug' => 'web-development'
+        ]);
+        $user = User::factory(25)
+            ->has(Post::factory()->count(mt_rand(3,10)))
             ->create();
     }
 }

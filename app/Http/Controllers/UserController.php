@@ -59,7 +59,7 @@ class UserController extends Controller
     {
         // Show all post by user
         $topics = Topic::limit(7)->get();
-        return view('user', ['topics'=>$topics, 'user'=>$user, 'posts'=>$user->posts]);
+        return view('user', ['topics'=>$topics, 'user'=>$user, 'posts'=>$user->posts->load('topic', 'user')]);
     }
 
     /**

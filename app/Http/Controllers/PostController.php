@@ -16,7 +16,8 @@ class PostController extends Controller
     public function index()
     {
         // Show all data
-        $posts = Post::all();
+        // Eager Load for posts
+        $posts = Post::with(['topic', 'user'])->get();
         $topics = Topic::limit(7)->get();
         return view('home', ['posts'=>$posts, 'topics'=>$topics]);
     }

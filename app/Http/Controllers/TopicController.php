@@ -15,7 +15,7 @@ class TopicController extends Controller
     public function index()
     {
         // Show all data
-        $topics = Topic::all();
+        $topics = Topic::orderBy('name', 'asc')->get();
         return view('topics', compact('topics'));
     }
     /**
@@ -28,6 +28,7 @@ class TopicController extends Controller
     {
         // Show specific data by slug
         $topics = Topic::limit(7)->get();
-        return view('topic', ['topics'=>$topics, 'topic'=>$topic, 'posts'=>$topic->posts]);
+        // Lazy eager load on posts
+        return view('topic', ['topics'=>$topics, 'topic'=>$topic, 'posts'=>$topic->posts->load('user', 'topic')]);
     }
 }
