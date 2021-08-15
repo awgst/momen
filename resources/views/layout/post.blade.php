@@ -18,12 +18,15 @@
         {{-- Navbar Section --}}
         <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
             <div class="container">
-                <a class="navbar-brand fw-bold fs-3 p-4" href="{{ url('/') }}">@yield('navbar-name')</a>
+                <a class="navbar-brand fw-bold fs-3 p-4" href="@yield('navbar-link')">@yield('navbar-name')</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
+                    <li class="nav-item me-3 d-flex justify-content-center">
+                        <a class="nav-link active" aria-current="page" href="{{ url('/') }}">Beranda</a>
+                    </li>
                     <li class="nav-item me-3 d-flex justify-content-center">
                         <a class="nav-link active" aria-current="page" href="{{ url('/') }}">Masuk</a>
                     </li>
@@ -41,5 +44,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    @yield('custom-script')
   </body>
 </html>

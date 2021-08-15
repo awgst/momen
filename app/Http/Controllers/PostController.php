@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Topic;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -16,7 +17,8 @@ class PostController extends Controller
     {
         // Show all data
         $posts = Post::all();
-        return view('home', compact('posts'));
+        $topics = Topic::limit(7)->get();
+        return view('home', ['posts'=>$posts, 'topics'=>$topics]);
     }
 
     /**

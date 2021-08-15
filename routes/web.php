@@ -16,5 +16,6 @@ use App\Http\Controllers\TopicController;
 */
 
 Route::get('/', [PostController::class, 'index']);
+Route::get('/topic', [TopicController::class, 'index']);
 Route::get('/{post:slug}', [PostController::class, 'show']);
-Route::get('/cat/{topic:slug}', [TopicController::class, 'show']);
+Route::get('/topic/{topic:slug}', [TopicController::class, 'show']);

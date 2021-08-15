@@ -8,6 +8,17 @@ use Illuminate\Http\Request;
 class TopicController extends Controller
 {
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        // Show all data
+        $topics = Topic::all();
+        return view('topics', compact('topics'));
+    }
+    /**
      * Display the specified resource.
      *
      * @param  \App\Models\Post  $post
@@ -16,6 +27,7 @@ class TopicController extends Controller
     public function show(Topic $topic)
     {
         // Show specific data by slug
-        return view('topic', ['topic'=>$topic, 'posts'=>$topic->posts]);
+        $topics = Topic::limit(7)->get();
+        return view('topic', ['topics'=>$topics, 'topic'=>$topic, 'posts'=>$topic->posts]);
     }
 }

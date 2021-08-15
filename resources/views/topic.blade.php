@@ -2,6 +2,7 @@
 @section('navbar-name')
     {{ $topic->name }}
 @endsection
+@section('navbar-link', $topic->slug)
 @section('content')
     <div class="container my-5">
         <div class="row">
@@ -41,17 +42,12 @@
                     <div class="d-flex flex-column">
                         <h5>Temukan topik menarik untukmu</h5>
                         <div class="row row-cols-4">
-                            <a href="" class="btn btn-light border border-2 w-auto me-1 mb-2">Programming</a>
-                            <a href="" class="btn btn-light border border-2 w-auto me-1 mb-2">Gaya Hidup</a>
-                            <a href="" class="btn btn-light border border-2 w-auto me-1 mb-2">Otomotif</a>
-                            <a href="" class="btn btn-light border border-2 w-auto me-1 mb-2">Pengembangan Diri</a>
-                            <a href="" class="btn btn-light border border-2 w-auto me-1 mb-2">Personal</a>
-                            <a href="" class="btn btn-light border border-2 w-auto me-1 mb-2">Desain</a>
-                            <a href="" class="btn btn-light border border-2 w-auto me-1 mb-2">Seni</a>
-                            <a href="" class="btn btn-light border border-2 w-auto me-1 mb-2">Olahraga</a>
-                            <a href="" class="btn btn-light border border-2 w-auto me-1 mb-2">Science</a>
+                            @foreach ($topics as $topic)
+                                <a href="{{ url('topic/'.$topic->slug) }}" class="btn btn-light border border-2 w-auto me-1 mb-2">{{ $topic->name }}</a>
+                            @endforeach
 
                         </div>
+                        <a href="{{ url('topic')}}" class="mt-3">Semua topik</a>
                     </div>
                     <div class="row border-top mt-3 pt-2">
                         <div class="col-sm-2">
