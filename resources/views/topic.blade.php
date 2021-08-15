@@ -1,21 +1,6 @@
-@extends('layout.app')
-@section('body')
-    <div class="container-fluid">
-        <div class="container">
-            <div class="d-flex justify-content-between">
-                <div class="col-lg-5 my-5 py-5 ms-4">
-                    <h1 class="fs-xxxl m-0">Berbagi saat terbaikmu.</h1>
-                    <p class="text-muted ms-1">Mulai tulis dan bagikan ceritamu gratis serta temukan berbagai cerita menarik tentang berbagai macam topik.</p>
-                    <div class="row ms-1">
-                        <a class="nav-link btn btn-dark text-light rounded-pill px-3 mt-2 w-auto fw-bold" href="#">Bergabung</a>
-                    </div>
-                </div>
-                <div class="col-lg-5 my-auto">
-                    <img src="{{ asset('img/re1324.png') }}" alt="" class="img-fluid">
-                </div>
-            </div>
-        </div>
-    </div>
+@extends('layout.post')
+@section('navbar-name')
+    {{ $topic->name }}
 @endsection
 @section('content')
     <div class="container my-5">
@@ -42,7 +27,7 @@
                                 <div class="d-flex w-100 mt-2">
                                     <small class="my-auto text-muted">3 days ago</small>
                                     <i class="bi bi-dot text-muted mt-1"></i>
-                                    <small class="text-muted my-auto">Oleh <a href="" class="text-decoration-none text-dark">Nama</a> dalam <a href="{{ url('cat/'.$post->topic->slug) }}" class="text-decoration-none text-dark">{{ $post->topic->name }}</a></small>
+                                    <small class="text-muted my-auto">Oleh <a href="" class="text-decoration-none text-dark">Nama</a> dalam <a href="{{ url('/'.$post->topic->slug) }}" class="text-decoration-none text-dark">{{ $post->topic->name }}</a></small>
                                 </div>
                             </div>
                         </div>
