@@ -1,8 +1,8 @@
 @extends('layout.post')
 @section('navbar-name')
-    {{ $topic->name }}
+    {{ $user->name }}
 @endsection
-@section('navbar-link', $topic->slug)
+@section('navbar-link', $user->username)
 @section('content')
     <div class="container my-5">
         <div class="row">
@@ -28,7 +28,7 @@
                                 <div class="d-flex w-100 mt-2">
                                     <small class="my-auto text-muted">3 days ago</small>
                                     <i class="bi bi-dot text-muted mt-1"></i>
-                                    <small class="text-muted my-auto">Oleh <a href="{{ url('user/'.$post->user->username) }}" class="text-decoration-none text-dark">{{ $post->user->name }}</a> dalam <a href="{{ url('topic/'.$post->topic->slug) }}" class="text-decoration-none text-dark">{{ $post->topic->name }}</a></small>
+                                    <small class="text-muted my-auto">Oleh <a href="{{ url('user/'.$user->username) }}" class="text-decoration-none text-dark">{{ $user->name }}</a> dalam <a href="{{ url('topic/'.$post->topic->slug) }}" class="text-decoration-none text-dark">{{ $post->topic->name }}</a></small>
                                 </div>
                             </div>
                         </div>

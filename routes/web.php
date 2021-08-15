@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TopicController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,4 @@ Route::get('/', [PostController::class, 'index']);
 Route::get('/topic', [TopicController::class, 'index']);
 Route::get('/{post:slug}', [PostController::class, 'show']);
 Route::get('/topic/{topic:slug}', [TopicController::class, 'show']);
+Route::get('/user/{user:username}', [UserController::class, 'showPosts']);

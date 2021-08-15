@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Topic;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -47,6 +48,18 @@ class UserController extends Controller
     public function show(User $user)
     {
         //
+    }
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function showPosts(User $user)
+    {
+        // Show all post by user
+        $topics = Topic::limit(7)->get();
+        return view('user', ['topics'=>$topics, 'user'=>$user, 'posts'=>$user->posts]);
     }
 
     /**
