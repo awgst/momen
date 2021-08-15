@@ -10,7 +10,7 @@
             </div>
             <div class="footer-post w-100 d-flex justify-content-between">
                 <div class="d-flex w-auto my-auto">
-                    <small class="text-muted my-auto">Oleh <a href="" class="text-decoration-none text-dark">Nama</a> dalam <a href="" class="text-decoration-none text-dark">Topik</a></small>
+                    <small class="text-muted my-auto">Oleh <a href="" class="text-decoration-none text-dark">Nama</a> dalam <a href="{{ url('/'.$post->topic->slug) }}" class="text-decoration-none text-dark">{{ $post->topic->name }}</a></small>
                     <i class="bi bi-dot text-muted mt-1"></i>
                     <small class="my-auto text-muted">3 days ago</small>
                 </div>

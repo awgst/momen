@@ -23,9 +23,9 @@
                 <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item me-3">
-                        <a class="nav-link active" aria-current="page" href="{{ url('/') }}">Tentang</a>
+                <ul class="navbar-nav ms-auto mb-1">
+                    <li class="nav-item me-3 d-flex">
+                        <a class="nav-link active mx-auto" aria-current="page" href="{{ url('/') }}">Tentang</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link btn btn-dark text-light rounded-pill px-3" href="#">Bergabung</a>

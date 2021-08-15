@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Topic extends Model
 {
     use HasFactory;
-    protected $guarded=['id'];
+    protected $guarded = ['id'];
 
     // Relationship
-    public function topic(){
-        return $this->belongsTo(Topic::class);
+    public function post(){
+        return $this->hasMany(Post::class);
     }
 }

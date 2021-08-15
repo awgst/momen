@@ -11,7 +11,7 @@
                     </div>
                 </div>
                 <div class="col-lg-5 my-auto">
-                    <img src="{{ asset('img/re1324.png') }}" alt="">
+                    <img src="{{ asset('img/re1324.png') }}" alt="" class="img-fluid">
                 </div>
             </div>
         </div>
@@ -26,7 +26,7 @@
                         @foreach ($posts as $post)
                         <div class="row mb-3">
                             <div class="col-md-4 d-flex">
-                                <a href="{{ url('/'.$post->slug) }}" class="mx-auto">
+                                <a href="{{ url('/'.$post->slug) }}" class="m-auto">
                                     <img src="{{ asset('img/rect815.png')}}" alt="" class="img-fluid float-start fixed-size-img">
                                 </a>
                             </div>
@@ -42,7 +42,7 @@
                                 <div class="d-flex w-100 mt-2">
                                     <small class="my-auto text-muted">3 days ago</small>
                                     <i class="bi bi-dot text-muted mt-1"></i>
-                                    <small class="text-muted my-auto">Oleh <a href="" class="text-decoration-none text-dark">Nama</a> dalam <a href="" class="text-decoration-none text-dark">Topik</a></small>
+                                    <small class="text-muted my-auto">Oleh <a href="" class="text-decoration-none text-dark">Nama</a> dalam <a href="{{ url('/'.$post->topic->slug) }}" class="text-decoration-none text-dark">{{ $post->topic->name }}</a></small>
                                 </div>
                             </div>
                         </div>
@@ -51,7 +51,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 mb-5">
                 <div class="d-flex flex-column">
                     <div class="d-flex flex-column">
                         <h5>Temukan topik menarik untukmu</h5>
