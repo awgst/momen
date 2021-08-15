@@ -6,7 +6,7 @@
         <div class="d-flex flex-column max-700">
             <h2>{{ $post->title }}</h2>
             <h3 class="text-muted mb-4">{{ $post->excerpt }}</h3>
-            <img src="{{ asset('img/rect815.png')}}" alt="" class="img-fluid">
+            <img src="https://source.unsplash.com/1600x900/?{{ $post->topic->name }}" alt="" class="img-fluid">
             <div class="post-body mt-5 fs-5">
                 {!! $post->body !!}
             </div>
@@ -22,7 +22,7 @@
                 <h3>Tentang Penulis</h3>
                 <div class="row border rounded-3 mt-3 mx-1">
                     <div class="col-md-4 p-0">
-                        <img src="{{ asset('img/rect815.png') }}" alt="" class="img-fluid h-100" style="border-radius: .3rem 0 0 .3rem">
+                        <img src="https://source.unsplash.com/user/{{ $post->user->username }}/1600x900" alt="" class="img-fluid h-100" style="border-radius: .3rem 0 0 .3rem">
                     </div>
                     <div class="col-md-8 my-auto p-3">
                         <a href="{{ url('user/'.$post->user->username) }}" class="text-decoration-none text-dark"><h4 class="pb-0 mb-0">{{ $post->user->name }}</h4></a>

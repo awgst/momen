@@ -8,7 +8,7 @@
                 <div class="col mb-4" style="width: 376px; height: 192px;">
                     <a href="{{ url('topic/'.$topic->slug) }}">
                         <p class="position-absolute ms-2 mt-2 text-light px-2 rounded-pill py-1" style="background-color: rgba(0, 0, 0, 0.65)">{{ $topic->name }}</p>
-                        <img src="{{ asset('img/rect815.png') }}" alt="" class="w-100 h-100">
+                        <img src="https://source.unsplash.com/1600x900/?{{ $topic->name }}" alt="" class="w-100 h-100">
                     </a>
                 </div>
             @endforeach

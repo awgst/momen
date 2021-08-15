@@ -27,7 +27,7 @@
                         <div class="row mb-3">
                             <div class="col-md-4 d-flex">
                                 <a href="{{ url('/'.$post->slug) }}" class="m-auto">
-                                    <img src="{{ asset('img/rect815.png')}}" alt="" class="img-fluid float-start fixed-size-img">
+                                    <img src="https://source.unsplash.com/1600x900/?{{ $post->topic->name }}" alt="" class="img-fluid float-start fixed-size-img">
                                 </a>
                             </div>
                             <div class="col-md-8 my-auto">
