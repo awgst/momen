@@ -14,6 +14,7 @@
     <title>Momen</title>
   </head>
   <body>
+    @include('snippets.auth')
     <div class="container-fluid bg-image border-bottom border-dark">
         {{-- Navbar Section --}}
         <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
@@ -28,7 +29,7 @@
                         <a class="nav-link active mx-auto" aria-current="page" href="{{ url('/') }}">Tentang</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn btn-dark text-light rounded-pill px-3" href="#">Bergabung</a>
+                        <a class="nav-link btn btn-dark text-light rounded-pill px-3" data-bs-toggle="modal" href="#registerToggle" role="button">Bergabung</a>
                     </li>
                 </ul>
                 </div>
