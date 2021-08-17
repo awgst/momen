@@ -59,27 +59,28 @@
                 </div>
                 <div class="col">
                     <div class="d-flex flex-column w-50 mx-auto align-items-center">
-                        <form>
-                            <div class="mb-3">
-                              <label for="exampleInputName" class="form-label">Nama Lengkap</label>
-                              <input type="email" class="form-control" id="exampleInputName" aria-describedby="emailHelp" required name="name">
+                        <form action="{{ url('auth/store') }}" method="POST" id="registerByMailForm">
+                            @csrf
+                            <div class="mb-3" id="formName">
+                              <label for="regInputName" class="form-label">Nama Lengkap</label>
+                              <input type="text" class="form-control" id="regInputName" aria-describedby="emailHelp" required name="name">
                             </div>
-                            <div class="mb-3">
-                              <label for="exampleInputEmail1" class="form-label">Alamat Email</label>
-                              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required name="email">
-                              <div id="emailHelp" class="form-text text-light fw-light">Momen tidak akan menggunakan email anda diluar keperluan dari website momen.</div>
+                            <div class="mb-3" id="formEmail">
+                                <label for="regInputEmail" class="form-label">Alamat Email</label>
+                                <input type="email" class="form-control" id="regInputEmail" aria-describedby="emailHelp" required name="email">
+                                <div id="emailHelp" class="form-text text-light fw-light">Momen tidak akan membagikan email kamu kepada siapapun.</div>
                             </div>
-                            <div class="mb-3">
-                              <label for="exampleInputPassword1" class="form-label">Password</label>
-                              <input type="password" class="form-control" id="exampleInputPassword1" required name="password">
+                            <div class="mb-3" id="formUsername">
+                              <label for="regInputName" class="form-label">Username</label>
+                              <input type="text" class="form-control" id="regInputUsername" required name="username">
                             </div>
-                            <div class="mb-3">
-                              <label for="exampleInputPassword2" class="form-label">Konfirmasi Password</label>
-                              <input type="password" class="form-control" id="exampleInputPassword2" required name="password_confirmation">
+                            <div class="mb-3" id="formPassword1">
+                              <label for="regInputPassword1" class="form-label">Password</label>
+                              <input type="password" class="form-control" id="regInputPassword1" required name="password">
                             </div>
-                            <div class="mb-3 form-check">
-                              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                              <label class="form-check-label" for="exampleCheck1">Dengan mendaftar saya menyetujui <a href="" class="text-decoration-none fw-bold">syarat & ketentuan</a></label>
+                            <div class="mb-3 form-check" id="formCheck">
+                              <input type="checkbox" class="form-check-input" id="regCheck1" name="checkbox">
+                              <label class="form-check-label" for="regCheck1">Dengan mendaftar saya menyetujui <a href="" class="text-decoration-none fw-bold">syarat & ketentuan</a></label>
                             </div>
                             <button type="submit" class="btn btn-primary w-100 disabled" id="btn-daftar" disabled>Daftar</button>
                         </form>
@@ -114,17 +115,17 @@
                         <form>
                             <div class="mb-3">
                               <label for="exampleInputEmail1" class="form-label">Alamat Email</label>
-                              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required name="email">
+                              <input type="email" class="form-control" id="loginInputEmail1" aria-describedby="emailHelp" required name="email">
                             </div>
                             <div class="mb-3">
                               <label for="exampleInputPassword1" class="form-label">Password</label>
-                              <input type="password" class="form-control" id="exampleInputPassword1" required name="password">
+                              <input type="password" class="form-control" id="loginInputPassword1" required name="password">
                             </div>
                             <div class="mb-3 form-check">
-                              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                              <label class="form-check-label" for="exampleCheck1">Ingat Saya</label>
+                              <input type="checkbox" class="form-check-input" id="loginCheck1">
+                              <label class="form-check-label" for="loginCheck1">Ingat Saya</label>
                             </div>
-                            <button type="submit" class="btn btn-primary w-100" id="btn-daftar">Masuk</button>
+                            <button type="submit" class="btn btn-primary w-100" id="btn-login">Masuk</button>
                         </form>
                     </div>
                 </div>

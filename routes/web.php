@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TopicController;
 use App\Http\Controllers\UserController;
 
@@ -21,3 +22,7 @@ Route::get('/topic', [TopicController::class, 'index']);
 Route::get('/{post:slug}', [PostController::class, 'show']);
 Route::get('/topic/{topic:slug}', [TopicController::class, 'show']);
 Route::get('/user/{user:username}', [UserController::class, 'showPosts']);
+
+// Auth Routes
+Route::post('/auth/store', [RegisterController::class, 'store']);
+Route::post('/auth/validate', [RegisterController::class, 'customvalidate']);
