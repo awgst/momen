@@ -12,10 +12,10 @@ class RegisterController extends Controller
         $validatedData = $request->validate([
             'name'=>'required',
             'email'=>'required|email:rfc,dns|unique:users',
-            'username'=>'required|unique:users|alpha_dash',
+            'username'=>'required|unique:users|alpha_dash|min:5',
             'password'=>'required|min:8',
             'checkbox'=>'required'
-        ], $this->messages());
+        ], $this->messages(), $this->attributes());
         $validatedData['password']=Hash::make($validatedData['password']);
         $validatedData = collect($validatedData);
         $data = $validatedData->except(['checkbox']);
@@ -28,7 +28,6 @@ class RegisterController extends Controller
         $insert = collect($data->data);
         User::create($insert->all());
         return redirect('/');
-
     }
 
     /**
@@ -40,10 +39,11 @@ class RegisterController extends Controller
     {
         return [
             'required' => 'Harap isi bidang :attribute.',
-            'alpha_dash' => "Hanya gunakan alfabet, angka, '-' atau '_'",
-            'min'=>':attribute minimal 8 karakter.',
+            'alpha_dash' => "Hanya gunakan huruf, angka, '-' atau '_'",
+            'min'=>':attribute minimal :min karakter.',
             'confirmed'=>':attribute tidak sesuai.',
-            'email'=>'Harap isi dengan :attribute yang valid.'
+            'email'=>'Harap isi dengan :attribute yang valid.',
+            'unique'=>':attribute telah digunakan.'
         ];
     }
     /**
@@ -56,7 +56,8 @@ class RegisterController extends Controller
         return [
             'name' => 'Nama',
             'email' => 'Alamat Email',
-            'password' => 'Password'
+            'password' => 'Password',
+            'username' => 'Username'
         ];
     }
 }

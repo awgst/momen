@@ -62,21 +62,25 @@
                         <form action="{{ url('auth/store') }}" method="POST" id="registerByMailForm">
                             @csrf
                             <div class="mb-3" id="formName">
-                              <label for="regInputName" class="form-label">Nama Lengkap</label>
-                              <input type="text" class="form-control" id="regInputName" aria-describedby="emailHelp" required name="name">
+                              <label for="regInputName" class="form-label">Nama</label>
+                              <input type="text" class="form-control" id="regInputName" aria-describedby="emailHelp" required name="name" placeholder="Nama">
+                              <div class="form-text text-danger fw-bold" id="errorName"></div>
                             </div>
                             <div class="mb-3" id="formEmail">
                                 <label for="regInputEmail" class="form-label">Alamat Email</label>
-                                <input type="email" class="form-control" id="regInputEmail" aria-describedby="emailHelp" required name="email">
+                                <input type="email" class="form-control" id="regInputEmail" aria-describedby="emailHelp" required name="email" placeholder="Email">
                                 <div id="emailHelp" class="form-text text-light fw-light">Momen tidak akan membagikan email kamu kepada siapapun.</div>
+                                <div class="form-text text-danger fw-bold" id="errorEmail"></div>
                             </div>
                             <div class="mb-3" id="formUsername">
                               <label for="regInputName" class="form-label">Username</label>
-                              <input type="text" class="form-control" id="regInputUsername" required name="username">
+                              <input type="text" class="form-control" id="regInputUsername" required name="username" placeholder="Username">
+                              <div class="form-text text-danger fw-bold" id="errorUsername"></div>
                             </div>
                             <div class="mb-3" id="formPassword1">
                               <label for="regInputPassword1" class="form-label">Password</label>
-                              <input type="password" class="form-control" id="regInputPassword1" required name="password">
+                              <input type="password" class="form-control" id="regInputPassword1" required name="password" placeholder="Password">
+                              <div class="form-text text-danger fw-bold" id="errorPassword"></div>
                             </div>
                             <div class="mb-3 form-check" id="formCheck">
                               <input type="checkbox" class="form-check-input" id="regCheck1" name="checkbox">
