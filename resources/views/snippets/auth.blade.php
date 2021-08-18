@@ -111,25 +111,29 @@
         </div>
         <div class="modal-body pt-0">
           <div class="row d-flex flex-column">
-                <div class="col text-center mb-5">
+                <div class="col text-center mb-3">
                   <h4>Masuk pake email.</h4>
                 </div>
                 <div class="col">
                     <div class="d-flex flex-column w-50 mx-auto align-items-center">
-                        <form>
+                        <div class="" role="alert" id="alert">
+
+                        </div>
+                        <form action="{{ url('auth/authenticate') }}" method="POST" id="loginByEmail">
+                            @csrf
                             <div class="mb-3">
                               <label for="exampleInputEmail1" class="form-label">Alamat Email</label>
-                              <input type="email" class="form-control" id="loginInputEmail1" aria-describedby="emailHelp" required name="email">
+                              <input type="email" class="form-control" id="loginInputEmail1" aria-describedby="emailHelp" required name="email" placeholder="Email">
                             </div>
                             <div class="mb-3">
                               <label for="exampleInputPassword1" class="form-label">Password</label>
-                              <input type="password" class="form-control" id="loginInputPassword1" required name="password">
+                              <input type="password" class="form-control" id="loginInputPassword1" required name="password" placeholder="Password">
                             </div>
                             <div class="mb-3 form-check">
                               <input type="checkbox" class="form-check-input" id="loginCheck1">
                               <label class="form-check-label" for="loginCheck1">Ingat Saya</label>
                             </div>
-                            <button type="submit" class="btn btn-primary w-100" id="btn-login">Masuk</button>
+                            <button type="submit" class="btn btn-primary w-100 h-auto" id="btn-login"> <span id="btn-login-text">Masuk</span><img src="{{ asset('img/loading-dots.gif') }}" alt="" class="img-fluid d-none" style="height: 38px!important" id="loginLoadingImg"></button>
                         </form>
                     </div>
                 </div>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
@@ -24,5 +25,8 @@ Route::get('/topic/{topic:slug}', [TopicController::class, 'show']);
 Route::get('/user/{user:username}', [UserController::class, 'showPosts']);
 
 // Auth Routes
+Route::post('/auth/authenticate', [LoginController::class, 'authentication']);
+Route::post('/auth/logout', [LoginController::class, 'logout']);
+// Register Routes
 Route::post('/auth/store', [RegisterController::class, 'store']);
 Route::post('/auth/validate', [RegisterController::class, 'customvalidate']);

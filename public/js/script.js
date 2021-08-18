@@ -1,4 +1,45 @@
 $(document).ready(function () {
+    // Login
+    $('#loginByEmail').submit(function (e) {
+        e.preventDefault();
+        $('#btn-login').prop('disabled', true);
+        $('#btn-login-text').addClass('d-none');
+        $('#loginLoadingImg').removeClass('d-none');
+        $.ajax({
+            type: "POST",
+            url: "/auth/authenticate",
+            data: $('#loginByEmail').serialize(),
+            dataType: "json",
+            success: function (response) {
+                if (response.message == 'Error') {
+                    $('#btn-login').prop('disabled', false);
+                    $('#btn-login-text').removeClass('d-none');
+                    $('#loginLoadingImg').addClass('d-none');
+                    $('#loginInputEmail1').val('');
+                    $('#loginInputPassword1').val('');
+                    $('#loginCheck1').prop('checked', false);
+                    $('#alert').html(`<strong>Login Error!</strong> Coba lagi.`);
+                    $('#alert').addClass('alert alert-danger fade show py-2 px-3');
+                }
+            },
+            error: function (xhr) {
+                if(xhr.status==200){
+                    location.reload();
+                }
+                else{
+                    $('#loginInputEmail1').val('');
+                    $('#loginInputPassword1').val('');
+                    $('#loginCheck1').prop('checked', false);
+                    $('#alert').html(`<strong>Login Error!</strong> Coba lagi.`);
+                    $('#alert').addClass('alert alert-danger fade show py-2 px-3');
+                    $('#btn-login').prop('disabled', false);
+                    $('#btn-login-text').removeClass('d-none');
+                    $('#loginLoadingImg').addClass('d-none');
+                }
+            }
+
+        });
+    });
     // Call register
     var formName = $('#formName').html();
     var formEmail = $('#formName').html();

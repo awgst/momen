@@ -7,7 +7,9 @@
                     <h1 class="fs-xxxl m-0">Berbagi saat terbaikmu.</h1>
                     <p class="text-muted ms-1">Mulai tulis dan bagikan ceritamu gratis serta temukan berbagai cerita menarik tentang berbagai macam topik.</p>
                     <div class="row ms-1">
-                        <a class="nav-link btn btn-dark text-light rounded-pill px-3 mt-2 w-auto fw-bold" href="#">Bergabung</a>
+                        @guest
+                            <a class="nav-link btn btn-dark text-light rounded-pill px-3 mt-2 w-auto fw-bold" data-bs-toggle="modal" href="#registerToggle" role="button">Bergabung</a>
+                        @endguest
                     </div>
                 </div>
                 <div class="col-lg-5 my-auto">

@@ -25,12 +25,31 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto mb-1">
-                    <li class="nav-item me-3 d-flex">
-                        <a class="nav-link active mx-auto" aria-current="page" href="{{ url('/') }}">Tentang</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-dark text-light rounded-pill px-3" data-bs-toggle="modal" href="#registerToggle" role="button">Bergabung</a>
-                    </li>
+                    @auth
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ auth()->user()->name }}
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Profil</a></li>
+                            <li><a class="dropdown-item" href="#"></a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <form action="{{ url('auth/logout') }}" method="POST">
+                                    @csrf
+                                    <button class="dropdown-item">Keluar</button>
+                                </form>
+                            </li>
+                            </ul>
+                        </li>
+                    @else
+                        <li class="nav-item me-3 d-flex">
+                            <a class="nav-link active mx-auto" aria-current="page" data-bs-toggle="modal" href="#loginToggle" role="button">Masuk</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-dark text-light rounded-pill px-3" data-bs-toggle="modal" href="#registerToggle" role="button">Bergabung</a>
+                        </li>
+                    @endauth
                 </ul>
                 </div>
             </div>
