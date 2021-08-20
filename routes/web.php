@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\OAuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
@@ -30,3 +31,7 @@ Route::post('/auth/logout', [LoginController::class, 'logout']);
 // Register Routes
 Route::post('/auth/store', [RegisterController::class, 'store']);
 Route::post('/auth/validate', [RegisterController::class, 'customvalidate']);
+
+//OAuth Routes
+Route::get('/auth/{driver}', [OAuthController::class, 'oAuthRedirect']);
+Route::get('/auth/{driver}/callback', [OAuthController::class, 'oAuthCallback']);

@@ -13,13 +13,13 @@
                 </div>
                 <div class="col">
                     <div class="d-flex flex-column w-46 mx-auto align-items-center">
-                        <a href="" class="btn btn-light rounded-pill mb-2 w-100 d-flex align-items-center">
+                        <a href="{{ url('auth/google') }}" class="btn btn-light rounded-pill mb-2 w-100 d-flex align-items-center">
                             <img src="{{ asset('img/google.PNG') }}" class="colored-icon me-2">
                             <div>
                                 Daftar pake Google
                             </div>
                         </a>
-                        <a href="" class="btn btn-light rounded-pill mb-2 w-100 d-flex align-items-center">
+                        <a href="{{ url('auth/linkedin') }}" class="btn btn-light rounded-pill mb-2 w-100 d-flex align-items-center">
                             <img src="{{ asset('img/linkedin.PNG') }}" class="colored-icon me-2">
                             <div>
                                 Daftar pake Linkedin
@@ -163,13 +163,13 @@
                     </div>
                     <div class="col">
                         <div class="d-flex flex-column w-46 mx-auto align-items-center">
-                            <a href="" class="btn btn-light rounded-pill mb-2 w-100 d-flex align-items-center">
+                            <a href="{{ url('auth/google') }}" class="btn btn-light rounded-pill mb-2 w-100 d-flex align-items-center">
                                 <img src="{{ asset('img/google.PNG') }}" class="colored-icon me-2">
                                 <div>
                                     Masuk pake Google
                                 </div>
                             </a>
-                            <a href="" class="btn btn-light rounded-pill mb-2 w-100 d-flex align-items-center">
+                            <a href="{{ url('auth/linkedin') }}" class="btn btn-light rounded-pill mb-2 w-100 d-flex align-items-center">
                                 <img src="{{ asset('img/linkedin.PNG') }}" class="colored-icon me-2">
                                 <div>
                                     Masuk pake Linkedin
