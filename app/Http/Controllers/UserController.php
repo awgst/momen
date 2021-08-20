@@ -70,7 +70,8 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        // Show setting form
+        return view('setting', compact('user'));
     }
 
     /**

@@ -35,6 +35,11 @@
     background-color: rgb(0, 0, 0, 0.55);
     color: white;
 }
+.setting-item:hover{
+    transform: scale(1.025);
+    color: black!important;
+    font-weight: bold;
+}
 .w-46{
     width: 46%!important;
 }

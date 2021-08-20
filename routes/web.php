@@ -19,7 +19,7 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', [PostController::class, 'index']);
+Route::get('/', [PostController::class, 'index'])->name('home');
 Route::get('/topic', [TopicController::class, 'index']);
 Route::get('/{post:slug}', [PostController::class, 'show']);
 Route::get('/topic/{topic:slug}', [TopicController::class, 'show']);
@@ -35,3 +35,7 @@ Route::post('/auth/validate', [RegisterController::class, 'customvalidate']);
 //OAuth Routes
 Route::get('/auth/{driver}', [OAuthController::class, 'oAuthRedirect']);
 Route::get('/auth/{driver}/callback', [OAuthController::class, 'oAuthCallback']);
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/user/{user:username}/setting', [UserController::class, 'edit']);
+});
