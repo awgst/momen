@@ -20,38 +20,47 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
             <div class="container border-bottom border-dark">
                 <a class="navbar-brand fw-bold fs-3" href="{{ url('/') }}">Momen</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
+                @auth
                 <ul class="navbar-nav ms-auto mb-1">
-                    @auth
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            {{ auth()->user()->name }}
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Profil</a></li>
-                            <li><a class="dropdown-item" href="#"></a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li>
-                                <form action="{{ url('auth/logout') }}" method="POST">
-                                    @csrf
-                                    <button class="dropdown-item">Keluar</button>
-                                </form>
+                    <div class="nav-item row w-auto align-items-center justify-content-center">
+                        <div class="col nav-link pe-0 fw-bold pb-0" style="color: rgba(0,0,0,.55);">
+                            Halo,
+                        </div>
+                        <div class="col ps-1 pb-0">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle fw-bold pb-0" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                {{ auth()->user()->name }}
+                                </a>
+                                <ul class="dropdown-menu position-absolute" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="#">Profil</a></li>
+                                    <li><a class="dropdown-item" href="#"></a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li>
+                                        <form action="{{ url('auth/logout') }}" method="POST">
+                                            @csrf
+                                            <button class="dropdown-item">Keluar</button>
+                                        </form>
+                                    </li>
+                                </ul>
                             </li>
-                            </ul>
-                        </li>
-                    @else
-                        <li class="nav-item me-3 d-flex">
-                            <a class="nav-link active mx-auto" aria-current="page" data-bs-toggle="modal" href="#loginToggle" role="button">Masuk</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link btn btn-dark text-light rounded-pill px-3" data-bs-toggle="modal" href="#registerToggle" role="button">Bergabung</a>
-                        </li>
-                    @endauth
+                        </div>
+                    </div>
                 </ul>
-                </div>
+                @else
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto mb-1">
+                            <li class="nav-item me-3 d-flex">
+                                <a class="nav-link active mx-auto" aria-current="page" data-bs-toggle="modal" href="#loginToggle" role="button">Masuk</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-dark text-light rounded-pill px-3" data-bs-toggle="modal" href="#registerToggle" role="button">Bergabung</a>
+                            </li>
+                        </ul>
+                    </div>
+                @endauth
             </div>
         </nav>
         {{-- End of Navbar Section --}}
