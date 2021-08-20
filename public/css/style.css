@@ -9,6 +9,17 @@
     background-color: #0d6dfdab;
     border-color: transparent;
 }
+.dropdown-item:hover{
+    background-color: transparent;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.dropdown-item.profile small:hover{
+    text-decoration: underline;
+}
+.dropdown-item.profile:hover{
+    text-decoration: none;
+}
 .fixed-size-img{
     width: 200px;
     aspect-ratio: auto 200 / 134;

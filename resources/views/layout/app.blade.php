@@ -32,15 +32,39 @@
                                 <a class="nav-link dropdown-toggle fw-bold pb-0" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 {{ auth()->user()->name }}
                                 </a>
-                                <ul class="dropdown-menu position-absolute" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">Profil</a></li>
-                                    <li><a class="dropdown-item" href="#"></a></li>
+                                <ul class="dropdown-menu position-absolute" aria-labelledby="navbarDropdown" style="max-width:215px">
+                                    <li>
+                                        <a class="dropdown-item profile" href="{{ url('user/'.auth()->user()->username) }}">
+                                            <div class="row row-cols-1 user" style="min-width: 215px;">
+                                                <div class="col w-100 d-flex">
+                                                    <img src="{{ asset('img/momen-logo.png') }}" alt="" class="img-fluid rounded-circle img-thumbnail w-25 mx-auto">
+                                                </div>
+                                                <div class="col w-100" >
+                                                    <div class="d-flex flex-column">
+                                                        <p class="p-0 fw-bold mb-0">{{ auth()->user()->name }}</p>
+                                                        <small class="text-muted">{{ auth()->user()->username }}</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="{{ url('user/create') }}">Cerita Baru</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('user/'.auth()->user()->username) }}">Ceritaku</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('user/'.auth()->user()->username.'/setting')}}">Pengaturan</a></li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li>
                                         <form action="{{ url('auth/logout') }}" method="POST">
                                             @csrf
                                             <button class="dropdown-item">Keluar</button>
                                         </form>
+                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li>
+                                        <div class="d-flex">
+                                            <small><a class="dropdown-item pe-3 py-0">Bantuan</a></small>
+                                            {{-- <small><a class="dropdown-item ps-0 py-0">Privasi</a></small> --}}
+                                        </div>
                                     </li>
                                 </ul>
                             </li>
