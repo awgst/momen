@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\OAuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TopicController;
 use App\Http\Controllers\UserController;
 
@@ -21,3 +24,14 @@ Route::get('/topic', [TopicController::class, 'index']);
 Route::get('/{post:slug}', [PostController::class, 'show']);
 Route::get('/topic/{topic:slug}', [TopicController::class, 'show']);
 Route::get('/user/{user:username}', [UserController::class, 'showPosts']);
+
+// Auth Routes
+Route::post('/auth/authenticate', [LoginController::class, 'authentication']);
+Route::post('/auth/logout', [LoginController::class, 'logout']);
+// Register Routes
+Route::post('/auth/store', [RegisterController::class, 'store']);
+Route::post('/auth/validate', [RegisterController::class, 'customvalidate']);
+
+//OAuth Routes
+Route::get('/auth/{driver}', [OAuthController::class, 'oAuthRedirect']);
+Route::get('/auth/{driver}/callback', [OAuthController::class, 'oAuthCallback']);
