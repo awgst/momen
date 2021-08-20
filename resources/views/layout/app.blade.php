@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     {{-- Custom Style --}}
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="icon" href="{{ asset('img/momen-logo.png') }}">
     <title>Momen</title>
   </head>
   <body>
