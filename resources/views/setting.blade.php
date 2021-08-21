@@ -14,6 +14,12 @@
                             {{ session('msg') }}
                         </div>
                     @endif
+                    {{-- Coming Soon --}}
+                    {{-- @if (session('deactivated'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('deactivated') }}
+                        </div>
+                    @endif --}}
                     @if($errors->any())
                         <div class="alert alert-danger" role="alert">
                             Gagal menyimpan perubahan.
@@ -130,20 +136,20 @@
                     $('#form-1').attr('action', `#`);
                 }
                 if($(this).html()==="Akun"){
-                    $('#form-1').html(`
-                    @csrf
-                    @method('DELETE')
-                    <h3 class="fw-bold pb-2 border-1 border-bottom" id="setting"></h3>
-                    <div class="row row-cols-2">
-                        <div class="col my-auto" style="width: 70%;">
-                            <p class="p-0 m-0">Menonaktifkan akun akan membuat akun anda tidak aktif sementara waktu sampai kamu mengaktifkannya kembali. Seluruh data yang kamu miliki tidak akan terhapus.</p>
-                        </div>
-                        <div class="col m-auto" style="width: 30%;">
-                            <button type="submit" class="btn btn-secondary m-auto">Nonaktifkan Akun</button>
-                        </div>
-                    </div>
-                    `);
-                    $('#form-1').attr('action', `#`);
+                    // Coming soon
+                    // $('#form-1').html(`
+                    // @csrf
+                    // <h3 class="fw-bold pb-2 border-1 border-bottom" id="setting"></h3>
+                    // <div class="row row-cols-2">
+                    //     <div class="col my-auto" style="width: 70%;">
+                    //         <p class="p-0 m-0">Menonaktifkan akun akan membuat akun anda tidak aktif sementara waktu sampai kamu mengaktifkannya kembali. Seluruh data yang kamu miliki tidak akan terhapus.</p>
+                    //     </div>
+                    //     <div class="col m-auto" style="width: 30%;">
+                    //         <button type="submit" class="btn btn-secondary m-auto">Nonaktifkan Akun</button>
+                    //     </div>
+                    // </div>
+                    // `);
+                    // $('#form-1').attr('action', `{{ url('user/'.$user->id) }}`);
                     $('#body-setting').append(`
                     <form action="{{ url('user/'.$user->id) }}" class="px-5 mx-5 mt-3" id="form-2"  method="POST">
                         @csrf
