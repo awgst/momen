@@ -39,5 +39,7 @@ Route::get('/auth/{driver}/callback', [OAuthController::class, 'oAuthCallback'])
 Route::middleware(['auth'])->group(function () {
     Route::put('/user/{user}', [UserController::class, 'update']);
     Route::delete('user/{user}', [UserController::class, 'destroy']);
-    Route::get('/user/{user:username}/setting', [UserController::class, 'edit']);
+    Route::middleware(['owner'])->group(function () {
+        Route::get('/user/{user:username}/setting', [UserController::class, 'edit']);
+    });
 });
