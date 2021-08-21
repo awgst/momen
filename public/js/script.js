@@ -1,4 +1,8 @@
 $(document).ready(function () {
+    // Accout deleted notif
+    if ($('#exampleModal').html()) {
+        $('#exampleModal').modal('show');
+    }
     // Login
     $('#loginByEmail').submit(function (e) {
         e.preventDefault();

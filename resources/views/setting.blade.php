@@ -145,7 +145,7 @@
                     `);
                     $('#form-1').attr('action', `#`);
                     $('#body-setting').append(`
-                    <form action="#" class="px-5 mx-5 mt-3" id="form-2"  method="POST">
+                    <form action="{{ url('user/'.$user->id) }}" class="px-5 mx-5 mt-3" id="form-2"  method="POST">
                         @csrf
                         @method('DELETE')
                         <div class="row row-cols-2">

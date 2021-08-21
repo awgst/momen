@@ -106,6 +106,9 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        // Force deleted an account
+        $user = User::find($user->id);
+        $user->forceDelete();
+        return redirect('/')->with('deleted', 'Akun berhasil dihapus!');
     }
 }
