@@ -9,17 +9,29 @@
                     @csrf
                     @method('PUT')
                     <h3 class="fw-bold pb-2 border-1 border-bottom" id="setting">Personal</h3>
+                    @if (session('msg'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('msg') }}
+                        </div>
+                    @endif
+                    @if($errors->any())
+                        <div class="alert alert-danger" role="alert">
+                            Gagal menyimpan perubahan.
+                        </div>
+                    @endif
                     <div class="form-floating mb-3 mt-3">
-                        <input type="text" class="form-control" id="nameFormfloating" placeholder="Nama Kamu..." value="{{ $user->name }}">
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="nameFormfloating" placeholder="Nama Kamu..." value="{{ $user->name }}" name="name" required>
                         <label for="floatingInput">Nama</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="emailFormfloating" placeholder="name@example.com" value="{{ $user->email }}">
+                        <input type="email" class="form-control @error('email') is-invalid @enderror" id="emailFormfloating" placeholder="name@example.com" value="{{ $user->email }}" name="email" required>
                         <label for="floatingInput">Alamat Email</label>
+                        <small class="text-muted" id="label-email">Pastikan email yang didaftarkan adalah email aktif yang aktif dan dapat digunakan.</small>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="usernameFormfloating" placeholder="Username Kamu..." value="{{ $user->email }}">
+                        <input type="text" class="form-control @error('username') is-invalid @enderror" id="usernameFormfloating" placeholder="Username Kamu..." value="{{ $user->username }}" name="username" required>
                         <label for="floatingInput">Username</label>
+                        <small class="text-muted" id="label-username">Gunakan huruf, angka atau '-' / '_'</small>
                     </div>
                     <div class="d-flex w-100">
                         <button type="submit" class="btn btn-primary mx-auto">Simpan</button>
@@ -32,7 +44,7 @@
                         <h4 class="border-bottom border-1 pb-2">Pengaturan</h4>
                         <div class="row">
                             <div class="col d-flex flex-column">
-                                <a href="#" class="fs-5 text-secondary text-decoration-none setting-item">Personal</a>
+                                <a href="#" class="fs-5 text-secondary text-decoration-none setting-item setting-active">Personal</a>
                                 <a href="#" class="fs-5 text-secondary text-decoration-none setting-item">Reset Password</a>
                                 <a href="#" class="fs-5 text-secondary text-decoration-none setting-item">Pengembangan</a>
                                 <a href="#" class="fs-5 text-secondary text-decoration-none setting-item">Akun</a>
@@ -59,35 +71,48 @@
     <script>
         $(document).ready(function () {
             $('.setting-item').on('click', function () {
+                $('.setting-item').removeClass('setting-active');
+                $(this).addClass('setting-active');
                 if($('#form-2').html()){
                     $('#form-2').remove();
                 }
                 if($(this).html()==='Personal'){
-                    $('#form-1').html(`
-                    @csrf
+                    $('#form-1').html(` @csrf
                     @method('PUT')
-                    <h3 class="fw-bold pb-2 border-1 border-bottom" id="setting">Personal</h3>
+                    <h3 class="fw-bold pb-2 border-1 border-bottom" id="setting"></h3>
+                    @if (session('msg'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('msg') }}
+                        </div>
+                    @endif
+                    @if($errors->any())
+                        <div class="alert alert-danger" role="alert">
+                            Gagal menyimpan perubahan.
+                        </div>
+                    @endif
                     <div class="form-floating mb-3 mt-3">
-                        <input type="email" class="form-control" id="floatingInput" placeholder="Nama Kamu..." value="{{ $user->name }}">
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="nameFormfloating" placeholder="Nama Kamu..." value="{{ $user->name }}" name="name" required>
                         <label for="floatingInput">Nama</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" value="{{ $user->email }}">
+                        <input type="email" class="form-control @error('email') is-invalid @enderror" id="emailFormfloating" placeholder="name@example.com" value="{{ $user->email }}" name="email" required>
                         <label for="floatingInput">Alamat Email</label>
+                        <small class="text-muted" id="label-email">Pastikan email yang didaftarkan adalah email aktif yang aktif dan dapat digunakan.</small>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="floatingInput" placeholder="Username Kamu..." value="{{ $user->email }}">
+                        <input type="text" class="form-control @error('username') is-invalid @enderror" id="usernameFormfloating" placeholder="Username Kamu..." value="{{ $user->username }}" name="username" required>
                         <label for="floatingInput">Username</label>
+                        <small class="text-muted" id="label-username">Gunakan huruf, angka atau '-' / '_'</small>
                     </div>
                     <div class="d-flex w-100">
                         <button type="submit" class="btn btn-primary mx-auto">Simpan</button>
                     </div>`);
-                    $('#form-1').attr('action', `{{ url('user/'.$user->id) }}`);
+                    $('#form-1').attr('action', `user/'.$user->id`);
                 }
                 if($(this).html()==='Reset Password'){
                     $('#form-1').html(`
                     @csrf
-                    <h3 class="fw-bold pb-2 border-1 border-bottom" id="setting">Personal</h3>
+                    <h3 class="fw-bold pb-2 border-1 border-bottom" id="setting"></h3>
                     <div class="d-flex w-100 flex-column">
                         <p class="p-0">Kami akan mengirimkan link untuk mereset password kamu ke <span class="fw-bold">{{ $user->email }}</span>. Silahkan periksa email kamu.</p>
                         <button type="submit" class="btn btn-primary mx-auto">Kirim</button>
@@ -97,7 +122,7 @@
                 if($(this).html()==='Pengembangan'){
                     $('#form-1').html(`
                     @csrf
-                    <h3 class="fw-bold pb-2 border-1 border-bottom" id="setting">Personal</h3>
+                    <h3 class="fw-bold pb-2 border-1 border-bottom" id="setting"></h3>
                     <div class="d-flex w-100 flex-column">
                         <p class="p-0">Untuk menggunakan mode pengembangan kamu harus merequest token terlebih dahulu sebelum dapat menggunakannya dalam aplikasi yang kamu kembangkan. Untuk info lebih lanjut silahkan kunjungi pusat bantuan.</p>
                         <button type="submit" class="btn btn-primary mx-auto">Minta Token</button>
@@ -108,7 +133,7 @@
                     $('#form-1').html(`
                     @csrf
                     @method('DELETE')
-                    <h3 class="fw-bold pb-2 border-1 border-bottom" id="setting">Personal</h3>
+                    <h3 class="fw-bold pb-2 border-1 border-bottom" id="setting"></h3>
                     <div class="row row-cols-2">
                         <div class="col my-auto" style="width: 70%;">
                             <p class="p-0 m-0">Menonaktifkan akun akan membuat akun anda tidak aktif sementara waktu sampai kamu mengaktifkannya kembali. Seluruh data yang kamu miliki tidak akan terhapus.</p>

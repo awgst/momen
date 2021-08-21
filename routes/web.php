@@ -37,5 +37,6 @@ Route::get('/auth/{driver}', [OAuthController::class, 'oAuthRedirect']);
 Route::get('/auth/{driver}/callback', [OAuthController::class, 'oAuthCallback']);
 
 Route::middleware(['auth'])->group(function () {
+    Route::put('/user/{user}', [UserController::class, 'update']);
     Route::get('/user/{user:username}/setting', [UserController::class, 'edit']);
 });

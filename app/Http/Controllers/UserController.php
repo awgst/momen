@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Topic;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
@@ -83,7 +84,18 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        // Store update
+        $request->validate([
+            'name'=>'required',
+            'username'=>['required', Rule::unique('users')->ignore($user), 'alpha_dash'],
+            'email'=>['required', Rule::unique('users')->ignore($user), 'email:rfc,dns']
+        ]);
+        $user = User::find($user->id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->username = $request->username;
+        $user->save();
+        return redirect('user/'.$user->username.'/setting')->with('msg', 'Berhasil menyimpan perubahan');
     }
 
     /**
