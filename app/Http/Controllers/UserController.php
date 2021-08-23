@@ -20,13 +20,14 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new post from a user.
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        //
+        // Return create pos view
+        return view('create');
     }
 
     /**

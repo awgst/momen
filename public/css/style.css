@@ -1,6 +1,12 @@
 .bg-image{
     background-color: #f9ca00ff;
 }
+.btn-outline-secondary{
+    background-color: #ffff;
+}
+.btn-outline-secondary:focus{
+    box-shadow: none;
+}
 .colored-icon{
     max-width: 20px;
     max-height: 20px;
@@ -25,6 +31,12 @@
     aspect-ratio: auto 200 / 134;
     height: 134px;
 }
+.form-floating .form-control:focus{
+    box-shadow: none;
+    border-left: 1px solid rgba(0, 0, 0, 1)!important;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
 .fs-xxxl{
     font-size: 90px;
 }
@@ -44,6 +56,9 @@
     transform: scale(1.025);
     color: black!important;
     font-weight: bold;
+}
+.toolbar{
+    margin-top: 12rem!important;
 }
 .w-46{
     width: 46%!important;
